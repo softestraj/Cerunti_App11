@@ -1,0 +1,17 @@
+ <h2> <%=@user.name%> Profile</h2>
+
+<div>
+  <ul style="list-style:none;padding-left:0px;">
+    <li> First Name</li> 
+    <li> <%=@user.first_name%></li> <br />
+    <li> Last Name</li> 
+    <li> <%=@user.last_name%></li> <br />
+    <li> Email</li> 
+    <li> <%=@user.email%></li><br />
+    <li> Gender</li> 
+    <li> <%=@user.sex%></li><br />
+  </ul>
+
+  <%=link_to "Edit", edit_user_path(current_user.id)%>
+
+</div>

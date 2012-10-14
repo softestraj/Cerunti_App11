@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CeruntiApp</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<div> <h1>Cerunti<h1> </div>
+<%unless current_user.blank?%>
+<div> Hi <%=link_to current_user.name, user_path(current_user.id)%> &nbsp;&nbsp;&nbsp; <%=link_to "Logout", user_session_path(current_user.id), :method => "delete"%></div>
+<%end%>
+	<div class="flash">
+          <span class="space-flash">&nbsp;</span>
+          <% flash.each do |type, message| -%>
+            <div class="message <%= type %>">
+              <p><%= message %></p>
+            </div>
+          <% end -%>
+        </div>
+
+<%= yield %>
+
+</body>
+</html>

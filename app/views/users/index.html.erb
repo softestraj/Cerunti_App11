@@ -1,0 +1,17 @@
+<h1>Listing users</h1>
+
+<table cellspacing="10">
+<%@users.each do |user|%>
+<%unless user.id == current_user.id%>
+  <tr >
+    <div> 
+  <span>  <%= link_to user.name, user_path(user.id)%> </span> 
+  <span> <%=user.sex%></span>
+    </div>
+  </tr>
+
+</table>
+<%end%>
+<br />
+<%end%>
+
