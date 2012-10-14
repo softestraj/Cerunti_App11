@@ -5,6 +5,9 @@ before_filter :require_user, :only => [:edit, :update, :destroy, :show, :index]
 
   def index
   @users = User.find(:all)
+  @frienship = current_user.frienships
+  @inverse_friendship = current_user.inverse_friends
+   @frienship =  @frienship +  @inverse_friendship
   end
 
   def new

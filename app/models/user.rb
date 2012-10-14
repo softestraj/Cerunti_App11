@@ -1,6 +1,11 @@
 class User < ActiveRecord::Base
 
-     attr_accessible :first_name,:last_name,:email,:sex, :password
+  has_many :friendships
+  has_many :friends, :through => :friendships
+  has_many :inverse_friendships, :class_name => "Friendship", :foreign_key => "friend_id"
+  has_many :inverse_friends, :through => :inverse_friendships, :source => :user
+
+   attr_accessible :first_name,:last_name,:email,:sex, :password
    acts_as_authentic do |config|
 	   config.require_password_confirmation = false
 	   config.login_field = :email

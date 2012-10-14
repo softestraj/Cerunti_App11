@@ -6,7 +6,13 @@
   <tr >
     <div> 
   <span>  <%= link_to user.name, user_path(user.id)%> </span> 
-  <span> <%=user.sex%></span>
+  <span> <%=user.sex%></span> <br />
+  <!-- Friendship Start--> 
+
+  <span><%= link_to "Add Friend", user_friendships_path(current_user.id, :friend_id => user), :method => :post %></span>
+  
+
+  <!-- Friendship End-->
     </div>
   </tr>
 

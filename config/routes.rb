@@ -2,7 +2,10 @@ CeruntiApp::Application.routes.draw do
   
   resources :user_sessions
 
-  resources :users
+  resources :users do
+
+  resource :friendships
+  end
 
   root :to => 'users#index'
   
